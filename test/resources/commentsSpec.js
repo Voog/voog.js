@@ -25,7 +25,7 @@ describe("resources/comments.js", function(){
             var scope = nock('http://testsite.com')
                 .get('/admin/api/articles/1/comments')
                 .reply(200, []);
-            API.comments({}, function(error, comments) {
+            API.comments(1, {}, function(error, comments) {
                 expect(scope.isDone()).to.be.true;
             });
         });
@@ -83,7 +83,7 @@ describe("resources/comments.js", function(){
     describe("#deleteSpamComments()", function(){
         it("should send a DELETE request to /admin/api/articles/1/comments/delete_spam", function(){
             var scope = nock('http://testsite.com')
-                .delete('/admin/api/articles/1/comments/1')
+                .delete('/admin/api/articles/1/comments/delete_spam')
                 .reply(200, '');
             API.deleteSpamComments(1, function(error, comment) {
                 expect(scope.isDone()).to.be.true;
