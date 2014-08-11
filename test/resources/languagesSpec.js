@@ -81,7 +81,7 @@ describe("resources/languages.js", function(){
         });
     });
     describe("#moveLanguage()", function(){
-        it("should send a DELETE request to /admin/api/languages/1/move", function(){
+        it("should send a PUT request to /admin/api/languages/1/move", function(){
             var scope = nock('http://testsite.com')
                 .put('/admin/api/languages/1/move')
                 .reply(200, '');
@@ -91,7 +91,7 @@ describe("resources/languages.js", function(){
         });
     });
     describe("#enableLanguageAutodetect()", function(){
-        it("should send a DELETE request to /admin/api/languages/enable_autodetect", function(){
+        it("should send a PUT request to /admin/api/languages/enable_autodetect", function(){
             var scope = nock('http://testsite.com')
                 .put('/admin/api/languages/enable_autodetect')
                 .reply(200, '');
