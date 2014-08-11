@@ -11,7 +11,6 @@ describe("resources/site.js", function(){
                 .reply(200, { name: 'My Site' });
             API.site({}, function(error, site) {
                 expect(typeof site).to.eq('object');
-                expect(site.id).to.eq(1);
                 expect(site.name).to.eq('My Site');
             });
         });
