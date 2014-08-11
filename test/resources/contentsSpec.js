@@ -7,7 +7,7 @@ describe("resources/contents.js", function(){
     describe("#contents()", function(){
         it("should send a GET request to /admin/api/pages/1/contents", function() {
             var scope = nock('http://testsite.com')
-                .get('/admin/api/contents')
+                .get('/admin/api/pages/1/contents')
                 .reply(200, []);
             API.contents('pages', 1, {}, function(error, contents) {
                 expect(scope.isDone()).to.be.true;
@@ -55,7 +55,7 @@ describe("resources/contents.js", function(){
         });
     });
     describe("#moveContent()", function(){
-        it("should send a DELETE request to /admin/api/pages/1/contents/1/move", function(){
+        it("should send a PUT request to /admin/api/pages/1/contents/1/move", function(){
             var scope = nock('http://testsite.com')
                 .put('/admin/api/pages/1/contents/1/move')
                 .reply(200, {});
