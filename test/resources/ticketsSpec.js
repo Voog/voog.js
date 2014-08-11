@@ -15,7 +15,7 @@ describe("resources/tickets.js", function(){
                     id: 2,
                     name: 'Ticket 2'
                 }]);
-            API.tickets({}, function(error, tickets) {
+            API.tickets(1, {}, function(error, tickets) {
                 expect(tickets.length).to.eq(2);
                 expect(typeof tickets).to.eq('object');
                 expect(tickets.hasOwnProperty('length')).to.be.true;
@@ -25,7 +25,7 @@ describe("resources/tickets.js", function(){
             var scope = nock('http://testsite.com')
                 .get('/admin/api/forms/1/tickets')
                 .reply(200, []);
-            API.tickets({}, function(error, tickets) {
+            API.tickets(1, {}, function(error, tickets) {
                 expect(scope.isDone()).to.be.true;
             });
         });
@@ -35,7 +35,7 @@ describe("resources/tickets.js", function(){
             var scope = nock('http://testsite.com')
                 .get('/admin/api/forms/1/tickets/1')
                 .reply(200, { id: 1, name: 'Ticket 1' });
-            API.ticket(1, {}, function(error, ticket) {
+            API.ticket(1, 1, {}, function(error, ticket) {
                 expect(typeof ticket).to.eq('object');
                 expect(ticket.id).to.eq(1);
                 expect(ticket.name).to.eq('Ticket 1');
@@ -45,23 +45,23 @@ describe("resources/tickets.js", function(){
             var scope = nock('http://testsite.com')
                 .get('/admin/api/forms/1/tickets/1')
                 .reply(200, []);
-            API.ticket(1, {}, function(error, ticket) {
+            API.ticket(1, 1, {}, function(error, ticket) {
                 expect(scope.isDone()).to.be.true;
             });
         });
     });
     describe("#deleteTicket()", function(){
-        it("should send a PUT request to /admin/api/forms/1/tickets/1", function(){
+        it("should send a DELETE request to /admin/api/forms/1/tickets/1", function(){
             var scope = nock('http://testsite.com')
                 .delete('/admin/api/forms/1/tickets/1')
                 .reply(200, {});
-            API.deleteTicket(1, function(error, ticket) {
+            API.deleteTicket(1, 1, function(error, ticket) {
                 expect(scope.isDone()).to.be.true;
             });
         });
     });
     describe("#deleteSpamTickets()", function(){
-        it("should send a PUT request to /admin/api/forms/1/tickets/delete_spam", function(){
+        it("should send a DELETE request to /admin/api/forms/1/tickets/delete_spam", function(){
             var scope = nock('http://testsite.com')
                 .delete('/admin/api/forms/1/tickets/delete_spam')
                 .reply(200, {});
