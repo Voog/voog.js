@@ -15,7 +15,7 @@ describe("resources/element_definitions.js", function(){
                     id: 2,
                     name: 'ElementDefinition 2'
                 }]);
-            API.element_definitions({}, function(error, element_definitions) {
+            API.elementDefinitions({}, function(error, element_definitions) {
                 expect(element_definitions.length).to.eq(2);
                 expect(typeof element_definitions).to.eq('object');
                 expect(element_definitions.hasOwnProperty('length')).to.be.true;
@@ -25,7 +25,7 @@ describe("resources/element_definitions.js", function(){
             var scope = nock('http://testsite.com')
                 .get('/admin/api/element_definitions')
                 .reply(200, []);
-            API.element_definitions({}, function(error, element_definitions) {
+            API.elementDefinitions({}, function(error, element_definitions) {
                 expect(scope.isDone()).to.be.true;
             });
         });
@@ -35,7 +35,7 @@ describe("resources/element_definitions.js", function(){
             var scope = nock('http://testsite.com')
                 .get('/admin/api/element_definitions/1')
                 .reply(200, { id: 1, name: 'ElementDefinition 1' });
-            API.element_definition(1, {}, function(error, element_definition) {
+            API.elementDefinition(1, {}, function(error, element_definition) {
                 expect(typeof element_definition).to.eq('object');
                 expect(element_definition.id).to.eq(1);
                 expect(element_definition.name).to.eq('ElementDefinition 1');
@@ -45,7 +45,7 @@ describe("resources/element_definitions.js", function(){
             var scope = nock('http://testsite.com')
                 .get('/admin/api/element_definitions/1')
                 .reply(200, []);
-            API.element_definition(1, {}, function(error, element_definition) {
+            API.elementDefinition(1, {}, function(error, element_definition) {
                 expect(scope.isDone()).to.be.true;
             });
         });
