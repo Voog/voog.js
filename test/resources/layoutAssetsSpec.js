@@ -4,7 +4,7 @@ var expect = require('chai').expect,
 
 describe("resources/layout_assets.js", function(){
     var API = new Voog('testsite.com:80', 'test_token');
-    describe("#layout_assets()", function(){
+    describe("#layoutAssets()", function(){
         it("should return an array of layout_assets", function(){
             var scope = nock('http://testsite.com')
                 .get('/admin/api/layout_assets')
@@ -15,7 +15,7 @@ describe("resources/layout_assets.js", function(){
                     id: 2,
                     name: 'LayoutAsset 2'
                 }]);
-            API.layout_assets({}, function(error, layout_assets) {
+            API.layoutAssets({}, function(error, layout_assets) {
                 expect(layout_assets.length).to.eq(2);
                 expect(typeof layout_assets).to.eq('object');
                 expect(layout_assets.hasOwnProperty('length')).to.be.true;
@@ -25,17 +25,17 @@ describe("resources/layout_assets.js", function(){
             var scope = nock('http://testsite.com')
                 .get('/admin/api/layout_assets')
                 .reply(200, []);
-            API.layout_assets({}, function(error, layout_assets) {
+            API.layoutAssets({}, function(error, layout_assets) {
                 expect(scope.isDone()).to.be.true;
             });
         });
     });
-    describe("#layout_asset()", function(){
+    describe("#layoutAsset()", function(){
         it("should return the same layout_asset object as in the response body", function(){
             var scope = nock('http://testsite.com')
                 .get('/admin/api/layout_assets/1')
                 .reply(200, { id: 1, name: 'LayoutAsset 1' });
-            API.layout_asset(1, {}, function(error, layout_asset) {
+            API.layoutAsset(1, {}, function(error, layout_asset) {
                 expect(typeof layout_asset).to.eq('object');
                 expect(layout_asset.id).to.eq(1);
                 expect(layout_asset.name).to.eq('LayoutAsset 1');
@@ -45,7 +45,7 @@ describe("resources/layout_assets.js", function(){
             var scope = nock('http://testsite.com')
                 .get('/admin/api/layout_assets/1')
                 .reply(200, []);
-            API.layout_asset(1, {}, function(error, layout_asset) {
+            API.layoutAsset(1, {}, function(error, layout_asset) {
                 expect(scope.isDone()).to.be.true;
             });
         });
