@@ -1,5 +1,5 @@
 {
-  "name": "voog.js",
+  "name": "voog",
   "version": "0.0.1",
   "description": "A Voog API client for NodeJS",
   "main": "./lib/voog.js",
