@@ -18,12 +18,23 @@ To generate your personal **API token** for your site, go to `Account` -> `My pr
 After you have installed the module, you can start using it in your Gruntfile or other script files.
 
 ```
-var Voog = require('./lib/voog');
+var Voog = require('voog');
 var client = new Voog(
     'example.com',                     // site url
     'afcf30182aecfc8155d390d7d4552d14' // API token
 );
 ```
+
+In the rare case of getting an `Error: Cannot find module 'voog'`, your `$NODE_PATH`
+environment variable is either unset or incorrect. 
+To fix this, add the following line to the end of your ~/.bash_profile:
+`export NODE_PATH="<NPM_PATH>/node_modules/"`, where NPM_PATH stands for the first
+line of the `npm ls -g` command, e.g `export NODE_PATH="/usr/local/lib/node_modules/"`.
+
+After logging out and back in to your terminal or running `source ~/.bash_profile`, 
+the `$NODE_PATH` should be correct and hopefully the module should be globally available now.
+
+## Using the client
 
 Now, the `client` is all set up and you can access virtually all resources by just calling the correct methods.
 
@@ -65,4 +76,5 @@ This displays:
 'English'
 ```
 
-To see what other methods are available, see the [API documentation](http://www.voog.com/developers/api) and browse the code of this module - all methods follow the same principles and should be fairly simple to follow.
+To see what other methods are available, see the [API documentation](http://www.voog.com/developers/api) 
+and browse the code of this module - all methods follow the same principles and should be fairly simple to follow.
