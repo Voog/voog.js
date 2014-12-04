@@ -18,6 +18,8 @@
   "homepage": "https://github.com/Edicy/voog.js",
   "dependencies": {
     "extend": "^1.3.0",
+    "mime": "^1.2.11",
+    "nodeproxy": "^1.0.0",
     "request": "2.37.x"
   },
   "devDependencies": {
