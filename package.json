@@ -1,10 +1,10 @@
 {
   "name": "voog",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Voog API client for NodeJS",
   "main": "./lib/voog.js",
   "scripts": {
-    "test": "mocha -R spec"
+    "test": "mocha --recursive -R spec"
   },
   "repository": {
     "type": "git",
