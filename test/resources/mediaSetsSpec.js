@@ -3,7 +3,7 @@ var expect = require('chai').expect,
     nock = require('nock');
 
 describe("resources/media_sets.js", function(){
-    var API = new Voog('testsite.com:80', 'test_token');
+    var API = new Voog('testsite.com', 'test_token');
     describe("#mediaSets()", function(){
         it("should return an array of media_sets", function(){
             var scope = nock('http://testsite.com')

@@ -3,7 +3,7 @@ var expect = require('chai').expect,
     nock = require('nock');
 
 describe("resources/tickets.js", function(){
-    var API = new Voog('testsite.com:80', 'test_token');
+    var API = new Voog('testsite.com', 'test_token');
     describe("#tickets()", function(){
         it("should return an array of tickets", function(){
             var scope = nock('http://testsite.com')

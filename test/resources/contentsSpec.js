@@ -3,7 +3,7 @@ var expect = require('chai').expect,
     nock = require('nock');
 
 describe("resources/contents.js", function(){
-    var API = new Voog('testsite.com:80', 'test_token');
+    var API = new Voog('testsite.com', 'test_token');
     describe("#contents()", function(){
         it("should send a GET request to /admin/api/pages/1/contents", function() {
             var scope = nock('http://testsite.com')
