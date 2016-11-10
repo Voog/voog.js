@@ -7,7 +7,7 @@ Learn more at the [Voog developer central](http://www.voog.com/developers/api) a
 ## Getting started
 
 First, you have to install the Voog.js module to your project directory 
-via `npm install voog.js`. Alternatively you can add the __'voog.js'__ package to
+via `npm install voog`. Alternatively you can add the __'voog.js'__ package to
 your Gruntfile as a dependency and let Grunt do all the work.
 
 ## API token
