@@ -6,9 +6,7 @@ Learn more at the [Voog developer central](http://www.voog.com/developers/api) a
 
 ## Getting started
 
-First, you have to install the Voog.js module to your project directory 
-via `npm install voog.js`. Alternatively you can add the __'voog.js'__ package to
-your Gruntfile as a dependency and let Grunt do all the work.
+First, you have to install the Voog module to your project directory via `npm install voog`. Alternatively you can add the __'voog'__ package to your package.json as a dependency and let `npm install` do all the work.
 
 ## API token
 
@@ -24,15 +22,6 @@ var client = new Voog(
     'afcf30182aecfc8155d390d7d4552d14' // API token
 );
 ```
-
-In the rare case of getting an `Error: Cannot find module 'voog'`, your `$NODE_PATH`
-environment variable is either unset or incorrect. 
-To fix this, add the following line to the end of your ~/.bash_profile:
-`export NODE_PATH="<NPM_PATH>/node_modules/"`, where NPM_PATH stands for the first
-line of the `npm ls -g` command, e.g `export NODE_PATH="/usr/local/lib/node_modules/"`.
-
-After logging out and back in to your terminal or running `source ~/.bash_profile`, 
-the `$NODE_PATH` should be correct and hopefully the module should be globally available now.
 
 ## Using the client
 
